@@ -8,6 +8,9 @@ import CH from './sounds/Cev_H2.mp3';
 import OH from './sounds/Dsc_Oh.mp3';
 import Kick1 from './sounds/Kick_n_Hat.mp3';
 import Kick2 from './sounds/RP4_KICK_1.mp3';
+import './App.css';
+
+
 
 const drumPads = [
   {
@@ -90,24 +93,26 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div id="drum-machine">
-        <div id="display">{display}</div>
-        <div id="drum-pad-container">
-          {drumPads.map((pad) => (
-            <div
-              key={pad.id}
-              className="drum-pad"
-              id={pad.id}
-              onClick={() => playAudio(pad)}
-            >
-              {pad.key}
-              <audio className="clip" id={pad.key} src={pad.src}></audio>
-            </div>
-          ))}
+<div className="App">
+  <div id="drum-machine">
+    <div id="title">Drum Machine</div>
+    <div id="display">{display}</div>
+    <div id="drum-pad-container">
+      {drumPads.map((pad) => (
+        <div
+          key={pad.id}
+          className="drum-pad"
+          id={pad.id}
+          onClick={() => playAudio(pad)}
+        >
+          {pad.key}
+          <audio className="clip" id={pad.key} src={pad.src}></audio>
         </div>
-      </div>
+      ))}
     </div>
+    <h2 id='how'>You can use the keyboard or click the pads</h2>
+  </div>
+</div>
   );
 }
 
